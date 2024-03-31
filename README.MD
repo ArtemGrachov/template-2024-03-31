@@ -1,8 +1,11 @@
 # Website template
 
+## Done
+- navigation (desktop)
+
 ## To do
 
-- navigation
+- navigation (mobile)
 - hero banner
   - carousel
   - images
