@@ -1,0 +1,14 @@
+include ../mixins/hero-banner.pug
+
+- var sliderOptions = { slideCount: 3, activeIndex: 0 }
+
++hero-banner(sliderOptions)
+  +hero-banner-slide(sliderOptions, { index: 0 })
+    .d-flex.align-items-center.justify-content-center.h-100
+      | Test 1
+  +hero-banner-slide(sliderOptions, { index: 1 })
+    .d-flex.align-items-center.justify-content-center.h-100
+      | Test 2
+  +hero-banner-slide(sliderOptions, { index: 2 })
+    .d-flex.align-items-center.justify-content-center.h-100
+      | Test 3

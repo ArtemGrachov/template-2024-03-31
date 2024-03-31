@@ -1,0 +1,23 @@
+mixin hero-banner(carouselOptions = {})
+  #hero-banner.carousel.carousel-dark.slide
+    .carousel-indicators
+      +hero-banner-controls(carouselOptions)
+    .carousel-inner
+      block
+
+mixin hero-banner-slide(carouselOptions = {}, slideOptions = {})
+  .carousel-item.vh-100(class=(carouselOptions.activeIndex === slideOptions.index ? 'active' : ''))
+    block
+
+mixin hero-banner-controls(carouselOptions = {})
+  each _, index in Array(carouselOptions.slideCount || 1)
+    +hero-banner-control(carouselOptions, { index: index })
+
+mixin hero-banner-control(carouselOptions = {}, controlOptions = {})
+  button(
+    type="button"
+    class=(carouselOptions.activeIndex === controlOptions.index ? 'active' : '')
+    data-bs-target="#hero-banner"
+    data-bs-slide-to=(controlOptions.index)
+    aria-label="Slide #{index}"
+  )
