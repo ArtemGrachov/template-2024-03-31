@@ -4,11 +4,45 @@ include ../mixins/hero-banner.pug
 
 +hero-banner(sliderOptions)
   +hero-banner-slide(sliderOptions, { index: 0 })
-    .d-flex.align-items-center.justify-content-center.h-100
-      | Test 1
+    .d-flex.align-items-center.justify-content-center.min-vh-100.py-5.text-bg-dark
+      .container
+        .row.align-items-center
+          .col-12.col-lg-4
+            .vstack.gap-3.align-items-start
+              h1.my-0 Lorem ipsum
+              h2.my-0 Dolor sit amet
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas architecto ut tempora molestiae molestias modi sunt eius officia, repellat eligendi eaque corporis nobis aspernatur corrupti fuga, fugiat odit odio recusandae!
+              a(href="#").btn.btn-primary Lorem ipsum
+          .col-12.col-lg-8
+            img(src="../../images/600x400.svg").mx-auto.d-block.mw-100
   +hero-banner-slide(sliderOptions, { index: 1 })
-    .d-flex.align-items-center.justify-content-center.h-100
-      | Test 2
+    .d-flex.align-items-center.justify-content-center.min-vh-100.py-5
+      .container
+        .row.align-items-center
+          .col-12.col-lg-4
+            .vstack.gap-3.align-items-start
+              h1.my-0 Lorem ipsum
+              h2.my-0 Dolor sit amet
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas architecto ut tempora molestiae molestias modi sunt eius officia, repellat eligendi eaque corporis nobis aspernatur corrupti fuga, fugiat odit odio recusandae!
+              a(href="#").btn.btn-secondary Lorem ipsum
+          .col-12.col-lg-8
+            iframe.mw-100(
+              src="https://www.youtube.com/embed/ScMzIvxBSi4"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              width="600"
+              height="400"
+            )
   +hero-banner-slide(sliderOptions, { index: 2 })
-    .d-flex.align-items-center.justify-content-center.h-100
-      | Test 3
+    .d-flex.align-items-center.justify-content-center.min-vh-100.py-5.text-bg-primary
+      .container
+        .row.align-items-center
+          .col-12.col-lg-4
+            .vstack.gap-3.align-items-start
+              h1.my-0 Lorem ipsum
+              h2.my-0 Dolor sit amet
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas architecto ut tempora molestiae molestias modi sunt eius officia, repellat eligendi eaque corporis nobis aspernatur corrupti fuga, fugiat odit odio recusandae!
+              a(href="#").btn.btn-success Lorem ipsum
+          .col-12.col-lg-8
+            img(src="../../images/600x400.svg").mx-auto.d-block.mw-100

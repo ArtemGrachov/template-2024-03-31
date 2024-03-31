@@ -1,12 +1,12 @@
 mixin hero-banner(carouselOptions = {})
-  #hero-banner.carousel.carousel-dark.slide
+  #hero-banner.carousel.carousel-dark.slide.min-vh-100
     .carousel-indicators
       +hero-banner-controls(carouselOptions)
     .carousel-inner
       block
 
 mixin hero-banner-slide(carouselOptions = {}, slideOptions = {})
-  .carousel-item.vh-100(class=(carouselOptions.activeIndex === slideOptions.index ? 'active' : ''))
+  .carousel-item(class=(carouselOptions.activeIndex === slideOptions.index ? 'active' : ''))
     block
 
 mixin hero-banner-controls(carouselOptions = {})

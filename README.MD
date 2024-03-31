@@ -2,16 +2,17 @@
 
 ## Done
 - navigation (desktop)
+- hero banner
+  - carousel
+  - images
+  - links
+  - heading
 
 ## To do
 
 - navigation (mobile)
 - hero banner
-  - carousel
-  - images
   - video
-  - links
-  - heading
 - text and media
   - media
     - dark and light version
