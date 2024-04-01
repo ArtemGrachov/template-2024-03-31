@@ -7,12 +7,11 @@
   - images
   - links
   - heading
+  - video
 
 ## To do
 
 - navigation (mobile)
-- hero banner
-  - video
 - text and media
   - media
     - dark and light version

@@ -4,6 +4,12 @@ mixin hero-banner(carouselOptions = {})
       +hero-banner-controls(carouselOptions)
     .carousel-inner
       block
+    button.carousel-control-prev.d-none.d-md-flex(type='button' data-bs-target='#hero-banner' data-bs-slide='prev')
+      span.carousel-control-prev-icon(aria-hidden='true')
+      span.visually-hidden Previous
+    button.carousel-control-next.d-none.d-md-flex(type='button' data-bs-target='#hero-banner' data-bs-slide='next')
+      span.carousel-control-next-icon(aria-hidden='true')
+      span.visually-hidden Next
 
 mixin hero-banner-slide(carouselOptions = {}, slideOptions = {})
   .carousel-item(class=(carouselOptions.activeIndex === slideOptions.index ? 'active' : ''))
@@ -15,9 +21,9 @@ mixin hero-banner-controls(carouselOptions = {})
 
 mixin hero-banner-control(carouselOptions = {}, controlOptions = {})
   button(
-    type="button"
+    type='button'
     class=(carouselOptions.activeIndex === controlOptions.index ? 'active' : '')
-    data-bs-target="#hero-banner"
+    data-bs-target='#hero-banner'
     data-bs-slide-to=(controlOptions.index)
-    aria-label="Slide #{index}"
+    aria-label='Slide #{index}'
   )
