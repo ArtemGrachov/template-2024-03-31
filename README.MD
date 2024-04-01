@@ -8,21 +8,24 @@
   - links
   - heading
   - video
+- text and media
+  - media
+    - dark and light version
+    - video
+    - image
+  - text
+    - title
+    - buttons
 
 ## To do
 
 - navigation (mobile)
 - text and media
   - media
-    - dark and light version
-    - video
-    - image
     - gallery
     - Google Map
   - text
-    - title
     - list with icons
-    - buttons
 - counters
 - image
 - gallery

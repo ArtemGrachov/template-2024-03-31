@@ -1,0 +1,41 @@
+mixin text-media(options)
+  .py-5(class=options.classNames)
+    .container
+      .row.align-items-center
+        .col-12.col-lg-6.mb-4.mb-lg-0
+          if options.reversed
+            +text-media-media(options)
+          else
+            +text-media-text(options)
+        .col-12.col-lg-6
+          if options.reversed
+            +text-media-text(options)
+          else
+            +text-media-media(options)
+
+mixin text-media-text(options)
+  .vstack.gap-3.align-items-start
+    .h2.my-0 #{options.title}
+    .h3.my-0 #{options.subtitle}
+    div #{options.content}
+    a.btn.btn-primary(href=options.link.url class=options.link.modifier target=options.link.target) #{options.link.title}
+
+mixin text-media-media(options)
+  case options.media.type
+    when 'youtube'
+      +text-media-youtube(options)
+    default
+      +text-media-image(options)
+
+mixin text-media-image(options)
+  img.d-block.m-auto.mw-100(src=options.media.url alt=options.media.alt title=options.media.title)
+
+mixin text-media-youtube(options)
+    iframe.d-block.m-auto.mw-100(
+      src=options.media.url
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      width="640"
+      height="480"
+  )
