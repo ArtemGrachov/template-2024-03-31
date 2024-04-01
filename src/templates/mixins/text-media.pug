@@ -1,4 +1,5 @@
 include ../mixins/carousel.pug
+include ../mixins/gmap.pug
 
 mixin text-media(options)
   .py-5(class=options.classNames)
@@ -30,6 +31,8 @@ mixin text-media-media(options, media)
       +text-media-image(options, media)
     when 'gallery'
       +text-media-gallery(options, media)
+    when 'gmap'
+      +text-media-gmap(options, media)
 
 mixin text-media-image(options, media)
   img.d-block.m-auto.mw-100(src=media.url alt=media.alt title=media.title)
@@ -61,3 +64,6 @@ mixin text-media-gallery(options, media)
           +text-media-media(options, slide)
     +carousel-button-prev({ target: '#' + media.galleryId })
     +carousel-button-next({ target: '#' + media.galleryId })
+
+mixin text-media-gmap(options, media)
+  +gmap

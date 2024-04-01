@@ -14,6 +14,7 @@
     - video
     - image
     - gallery
+    - Google Map
   - text
     - title
     - buttons
@@ -22,8 +23,6 @@
 
 - navigation (mobile)
 - text and media
-  - media
-    - Google Map
   - text
     - list with icons
 - counters
