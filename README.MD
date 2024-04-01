@@ -13,6 +13,7 @@
     - dark and light version
     - video
     - image
+    - gallery
   - text
     - title
     - buttons
@@ -22,7 +23,6 @@
 - navigation (mobile)
 - text and media
   - media
-    - gallery
     - Google Map
   - text
     - list with icons

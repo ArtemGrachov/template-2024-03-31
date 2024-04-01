@@ -1,0 +1,18 @@
+mixin carousel-button-prev(options)
+  button.carousel-control-prev.d-none.d-md-flex(type='button' data-bs-target=options.target data-bs-slide='prev')
+    span.carousel-control-prev-icon(aria-hidden='true')
+    span.visually-hidden Previous
+
+mixin carousel-button-next(options)
+  button.carousel-control-next.d-none.d-md-flex(type='button' data-bs-target=options.target data-bs-slide='next')
+    span.carousel-control-next-icon(aria-hidden='true')
+    span.visually-hidden Next
+
+mixin carousel-pagination-control(options)
+  button(
+    type='button'
+    class=(options.active ? 'active' : '')
+    data-bs-target=options.target
+    data-bs-slide-to=options.index
+    aria-label='Slide #{options.index}'
+  )
