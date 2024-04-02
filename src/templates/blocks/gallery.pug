@@ -1,0 +1,25 @@
+include ../mixins/gallery.pug
+
+- var sliderOptions = { slideCount: 3, activeIndex: 0 }
+
+section.py-5
+  .container
+    +gallery(sliderOptions)
+      +gallery-slide(sliderOptions, { index: 0 })
+        .py-5
+          figure
+            img.d-block.m-auto.mw-100(src='../../images/1200x600.svg' alt='Test image' title='Test image')
+            figcaption.text-center.fw-italic.mt-2 Lorem ipsum dolor sit amet
+      +gallery-slide(sliderOptions, { index: 1 })
+        .py-5
+          img.d-block.m-auto.mw-100(src='../../images/1200x600.svg' alt='Test image' title='Test image')
+      +gallery-slide(sliderOptions, { index: 2 })
+        .py-5
+          iframe.d-block.m-auto.mw-100(
+            src="https://www.youtube.com/embed/ScMzIvxBSi4"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            width="1200"
+            height="600"
+          )

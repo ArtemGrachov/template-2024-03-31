@@ -19,6 +19,9 @@
     - title
     - buttons
 - image
+- gallery
+  - image
+  - video
 
 ## To do
 
@@ -27,9 +30,6 @@
   - text
     - list with icons
 - counters
-- gallery
-  - image
-  - video
 - prices
 - cards
 - team

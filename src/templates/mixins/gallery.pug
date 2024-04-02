@@ -1,0 +1,25 @@
+include ../mixins/carousel.pug
+
+mixin gallery(carouselOptions = {})
+  #gallery.carousel.slide.py-4(data-bs-theme="dark")
+    .carousel-indicators
+      +gallery-controls(carouselOptions)
+    .carousel-inner
+      block
+    +carousel-button-prev({ target: '#gallery' })
+    +carousel-button-next({ target: '#gallery' })
+
+mixin gallery-slide(carouselOptions = {}, slideOptions = {})
+  .carousel-item(class=(carouselOptions.activeIndex === slideOptions.index ? 'active' : ''))
+    block
+
+mixin gallery-controls(carouselOptions = {})
+  each _, index in Array(carouselOptions.slideCount || 1)
+    +gallery-control(carouselOptions, { index: index })
+
+mixin gallery-control(carouselOptions = {}, controlOptions = {})
+  +carousel-pagination-control({
+    active: carouselOptions.activeIndex === controlOptions.index,
+    index: controlOptions.index,
+    target: '#gallery'
+  })
