@@ -18,6 +18,7 @@
   - text
     - title
     - buttons
+- image
 
 ## To do
 
@@ -26,7 +27,6 @@
   - text
     - list with icons
 - counters
-- image
 - gallery
   - image
   - video
