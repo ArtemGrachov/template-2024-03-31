@@ -18,6 +18,7 @@
   - text
     - title
     - buttons
+- counters
 - image
 - gallery
   - image
@@ -29,7 +30,6 @@
 - text and media
   - text
     - list with icons
-- counters
 - prices
 - cards
 - team
