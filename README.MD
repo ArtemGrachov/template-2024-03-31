@@ -17,6 +17,7 @@
     - Google Map
   - text
     - title
+    - list with icons
     - buttons
 - counters
 - image
@@ -28,9 +29,6 @@
 ## To do
 
 - navigation (mobile)
-- text and media
-  - text
-    - list with icons
 - cards
 - team
 - history
