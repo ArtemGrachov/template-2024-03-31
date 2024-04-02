@@ -1,0 +1,10 @@
+mixin price-card(options)
+  .card.text-center(class=options.classNames)
+    .card-body
+      .h4.card-title #{options.title}
+      .h5.card-subtitle.text-body-secondary.mb-4 #{options.subtitle}
+      ul.list-unstyled.mb-4
+        each feature in options.features
+          li.mb-2 #{feature}
+      .h2.font-weight-bold.mb-4.text-success #{options.price}
+      a(href="#").btn.btn-success.btn-lg Choose

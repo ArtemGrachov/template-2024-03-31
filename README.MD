@@ -23,6 +23,7 @@
 - gallery
   - image
   - video
+- prices
 
 ## To do
 
@@ -30,7 +31,6 @@
 - text and media
   - text
     - list with icons
-- prices
 - cards
 - team
 - history

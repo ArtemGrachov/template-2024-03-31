@@ -1,0 +1,47 @@
+include ../mixins/price-card.pug
+
+section.py-5
+  .container
+    .row.justify-content-center
+      .col-12.col-md-6.col-lg-4.mb-4
+        +price-card({
+          title: 'Beginner',
+          subtitle: 'Lorem ipsum',
+          features: [
+            'Lorem ipsum dolor sit amet',
+            'Consectetur adipisicing elit',
+            'Natus consectetur nihil amet consequatur',
+            'Illum harum quos nostrum quod officiis',
+            'Ducimus alias accusamus nam voluptate tempore?',
+            'Laborum tenetur debitis inventore assumenda!'
+          ],
+          price: 'Free!'
+        })
+      .col-12.col-md-6.col-lg-4.mb-4
+        +price-card({
+          title: 'Business',
+          subtitle: 'Lorem ipsum',
+          features: [
+            'Lorem ipsum dolor sit amet',
+            'Consectetur adipisicing elit',
+            'Natus consectetur nihil amet consequatur',
+            'Illum harum quos nostrum quod officiis',
+            'Ducimus alias accusamus nam voluptate tempore?',
+            'Laborum tenetur debitis inventore assumenda!'
+          ],
+          price: '$12 / month'
+        })
+      .col-12.col-md-6.col-lg-4.mb-4
+        +price-card({
+          title: 'Pro',
+          subtitle: 'Lorem ipsum',
+          features: [
+            'Lorem ipsum dolor sit amet',
+            'Consectetur adipisicing elit',
+            'Natus consectetur nihil amet consequatur',
+            'Illum harum quos nostrum quod officiis',
+            'Ducimus alias accusamus nam voluptate tempore?',
+            'Laborum tenetur debitis inventore assumenda!'
+          ],
+          price: '$25 / month'
+        })
