@@ -28,11 +28,11 @@
 - cards
 - team
 - testimonials
+- blog
 
 ## To do
 - navigation (mobile)
 - history
-- blog
 - contact us form
 - FAQ
 - footer
