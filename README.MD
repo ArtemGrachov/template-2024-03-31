@@ -31,12 +31,12 @@
 - blog
 - contact us form
 - FAQ
-
-## To do
-- navigation (mobile)
-- history
 - footer
   - social links
   - links
   - phone, email, location
   - subscribe form
+
+## To do
+- navigation (mobile)
+- history
