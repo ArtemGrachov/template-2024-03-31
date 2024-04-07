@@ -27,11 +27,11 @@
 - prices
 - cards
 - team
+- testimonials
 
 ## To do
 - navigation (mobile)
 - history
-- testimonials
 - blog
 - contact us form
 - FAQ

@@ -1,0 +1,23 @@
+include ../mixins/carousel.pug
+include ../mixins/review.pug
+
+- var reviewCount = 5
+- var sliderOptions = { target: '#testimonials', slideCount: reviewCount, activeIndex: 0 }
+
+section.py-5
+  .container
+    .h1.mt-0.text-center Testimonials
+    #testimonials.carousel.slide(data-bs-theme="dark")
+      .carousel-indicators
+        each _, index in Array(sliderOptions.slideCount || 1)
+          +carousel-pagination-control({
+            active: sliderOptions.activeIndex === index,
+            index: index,
+            target: sliderOptions.target
+          })
+      .carousel-inner
+        each _, index in Array(sliderOptions.slideCount || 1)
+          .carousel-item.p-5(class=(index === sliderOptions.activeIndex ? 'active' : ''))
+            +review
+      +carousel-button-prev(sliderOptions)
+      +carousel-button-next(sliderOptions)
