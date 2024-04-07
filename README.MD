@@ -29,11 +29,11 @@
 - team
 - testimonials
 - blog
+- contact us form
 
 ## To do
 - navigation (mobile)
 - history
-- contact us form
 - FAQ
 - footer
   - social links

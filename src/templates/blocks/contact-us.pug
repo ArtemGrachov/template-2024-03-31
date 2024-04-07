@@ -1,0 +1,17 @@
+section.py-5
+  .container
+    .h1.mt-0.mb-5 Contact us
+    form
+      .mb-3
+        label.form-label(for='contact-name') Name
+        input#contact-name.form-control(type='text' placeholder='John Doe')
+      .mb-3
+        label.form-label(for='contact-subject') Subject
+        input#contact-subject.form-control(type='text' placeholder='Lorem Ipsum Dolor Sit Amet')
+      .mb-3
+        label.form-label(for='contact-email') Email address
+        input#contact-email.form-control(type='email' placeholder='test@test.com')
+      .mb-3
+        label.form-label(for='contact-message') Message
+        textarea#contact-message.form-control(rows='3')
+      button.btn.btn-primary(type='submit') Submit
