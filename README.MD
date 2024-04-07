@@ -36,7 +36,7 @@
   - links
   - phone, email, location
   - subscribe form
+- navigation (mobile)
 
 ## To do
-- navigation (mobile)
 - history

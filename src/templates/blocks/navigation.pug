@@ -1,6 +1,8 @@
-.navbar.position-fixed.z-3.bg-dark.w-100(data-bs-theme="dark")
+nav.navbar.position-fixed.z-3.bg-dark.w-100(data-bs-theme="dark")
   .container
-    ul.nav.mx-auto
+    button.navbar-toggler.d-lg-none(type='button' data-bs-toggle='modal' data-bs-target='#mobile-nav')
+      span.navbar-toggler-icon
+    ul.nav.mx-auto.d-none.d-lg-flex
       li.nav-item
         a.nav-link.active(href="#features") Features
       li.nav-item
