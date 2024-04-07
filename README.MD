@@ -25,11 +25,10 @@
   - image
   - video
 - prices
+- cards
 
 ## To do
-
 - navigation (mobile)
-- cards
 - team
 - history
 - testimonials
