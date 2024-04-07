@@ -26,10 +26,10 @@
   - video
 - prices
 - cards
+- team
 
 ## To do
 - navigation (mobile)
-- team
 - history
 - testimonials
 - blog
