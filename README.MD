@@ -30,11 +30,11 @@
 - testimonials
 - blog
 - contact us form
+- FAQ
 
 ## To do
 - navigation (mobile)
 - history
-- FAQ
 - footer
   - social links
   - links

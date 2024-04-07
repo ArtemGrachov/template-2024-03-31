@@ -1,0 +1,8 @@
+mixin faq(options)
+  .accordion-item
+    h2.accordion-header
+      button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target=('#' + options.id) aria-expanded='false' aria-controls=options.parent)
+        | Lorem ipsum dolor, sit amet
+    .accordion-collapse.collapse(data-bs-parent=options.parent id=options.id)
+      .accordion-body
+        | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur eum odit unde? Autem recusandae, optio est ipsa corrupti asperiores modi! Beatae fugit incidunt repudiandae tenetur, repellat accusantium molestiae eos esse!

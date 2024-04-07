@@ -1,0 +1,8 @@
+include ../mixins/faq.pug
+
+section.py-5
+  .container
+    .h1.mt-0.mb-5 FAQ
+    .accordion#faq-accordion
+      each _, index in Array(5)
+        +faq({ id: ('faq-' + index), parent: '#faq-accordion' })
