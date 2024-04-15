@@ -1,4 +1,5 @@
 # Website template
+Basic template for landing page built with Bootstrap.
 
 ## Done
 - navigation (desktop)
@@ -37,6 +38,3 @@
   - phone, email, location
   - subscribe form
 - navigation (mobile)
-
-## To do
-- history
