@@ -1,0 +1,49 @@
+include ../../../mixins/carousel.pug
+include ../../../mixins/gmap.pug
+
+mixin text-media-media(options, media)
+  case media.type
+    when 'youtube'
+      +text-media-youtube(options, media)
+    when 'image'
+      +text-media-image(options, media)
+    when 'gallery'
+      +text-media-gallery(options, media)
+    when 'gmap'
+      +text-media-gmap(options, media)
+
+
+mixin text-media-image(options, media)
+  img.d-block.m-auto.mw-100(src=media.url alt=media.alt title=media.title)
+
+mixin text-media-youtube(options, media)
+  iframe.d-block.m-auto.mw-100(
+    src=media.url
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+    width="640"
+    height="480"
+  )
+
+mixin text-media-gallery(options, media)
+  - var galleryId = `text-media-gallery-{UNIQUE_ID++}`;
+  - var target = '#' + galleryId;
+
+  .carousel.slide(id=galleryId)
+    .carousel-indicators
+      each slide, index in media.slides
+        +carousel-pagination-control({
+          active: index === 0,
+          index: index,
+          target: target
+        })
+    .carousel-inner
+      each slide, index in media.slides
+        .carousel-item(class=(index === 0 ? 'active' : ''))
+          +text-media-media(options, slide)
+    +carousel-button-prev({ target: '#' + galleryId })
+    +carousel-button-next({ target: '#' + galleryId })
+
+mixin text-media-gmap(options, media)
+  +gmap

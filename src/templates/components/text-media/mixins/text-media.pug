@@ -1,0 +1,19 @@
+include ./text-media-text.pug
+include ./text-media-media.pug
+
+mixin text-media(options)
+  .py-5(class=options.classNames)
+    .container
+      .row.align-items-center
+        .col-12.col-lg-6.mb-4.mb-lg-0
+          if options.reversed
+            if (options.media)
+              +text-media-media(options, options.media)
+          else
+            +text-media-text(options)
+        .col-12.col-lg-6
+          if options.reversed
+            +text-media-text(options)
+          else
+            if (options.media)
+              +text-media-media(options, options.media)

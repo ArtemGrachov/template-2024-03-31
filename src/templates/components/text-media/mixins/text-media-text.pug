@@ -1,0 +1,16 @@
+mixin text-media-text(options)
+  .vstack.gap-3.align-items-start
+    .h2.my-0 #{options.title}
+    .h3.my-0 #{options.subtitle}
+    div #{options.content}
+    ul.list-unstyled.mb-0
+      li.mb-2.d-flex.align-items-center
+        .bi-alarm.me-2.fs-4
+        | Lorem ipsum dolor sit amet consectetur adipisicing elit
+      li.mb-2.d-flex.align-items-center
+        .bi-chat-dots.me-2.fs-4
+        | Aspernatur dolore minus alias ipsa
+      li.d-flex.align-items-center
+        .bi-diagram-3.me-2.fs-4
+        | Similique nemo perspiciatis eaque nostrum
+    a.btn.btn-primary(href=options.link.url class=options.link.class target=options.link.target) #{options.link.title}
