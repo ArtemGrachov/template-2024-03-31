@@ -1,0 +1,35 @@
+include ./variables/colours.pug
+include ../components/hero-banner/mixins/hero-banner-slider.pug
+include ../components/hero-banner/mixins/hero-banner.pug
+include ../components/hero-banner/mixins/hero-banner-media.pug
+include ../components/hero-banner/mixins/hero-banner-content.pug
+
+- var contents = ['image', 'video']
+- var contentCounter = 0
+- var buttonColors = [...COLOURS.slice(1), COLOURS[0]];
+
+- var sliderOptions = { slideCount: COLOURS.length, activeIndex: 0 }
+
++hero-banner-slider(sliderOptions)
+  each colour, index in COLOURS
+    +hero-banner-slide(sliderOptions, { index: index })
+      +hero-banner({ class: `text-bg-${colour}` })
+        +hero-banner-content({
+          title: `Lorem ipsum ${buttonColors[index]}`,
+          subtitle: 'Dolor sit amet',
+          link: {
+            href: '#',
+            label: 'Test link',
+            class: `btn-${buttonColors[index]}`
+          }
+        })
+          include ../components/hero-banner/blocks/text.pug
+        +hero-banner-media
+          - var currentContent = contents[contentCounter]
+          if (currentContent === 'image')
+            include ../components/hero-banner/blocks/image.pug
+          else if (currentContent === 'video')
+            include ../components/hero-banner/blocks/video.pug
+          - contentCounter++
+          if (contentCounter >= contents.length)
+            - contentCounter = 0

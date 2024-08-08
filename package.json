@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel serve src/templates/pages/index.pug --public-url / --dist-dir dist",
-    "build": "parcel build src/templates/pages/index.pug --public-url / --dist-dir dist"
+    "start": "parcel serve src/templates/pages/*.pug --public-url / --dist-dir dist",
+    "build": "parcel build src/templates/pages/*.pug --public-url / --dist-dir dist"
   },
   "author": "Artem Grachov",
   "license": "ISC",
