@@ -1,78 +1,83 @@
 include ./variables/colours.pug
-include ../components/text-media/mixins/text-media.pug
+include ../mixins/text-media.pug
 
-- var coloursReverse = COLOURS.reverse();
-
-- var mediaOptions = {
--   image: { type: 'image', url: '../../images/600x400.svg', alt: 'Dolor sit amet' },
--   youtube: { type: 'youtube', url: 'https://www.youtube.com/embed/ScMzIvxBSi4' },
--   gallery: {
--     type: 'gallery',
--     slides: [
--       {
--         type: 'youtube',
--         url: 'https://www.youtube.com/embed/ScMzIvxBSi4'
--       },
--       {
--         type: 'image',
--         url: '../../images/600x400.svg',
--         alt: 'Dolor sit amet'
--       }
--     ]
--   },
--   gmap: { type: 'gmap' }
+- var TEXT_MEDIA_CONTENT = {
+-   title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+-   subtitle: 'Ipsum magni dolorem culpa ratione amet consectetur optio sed placeat aut explicabo',
+-   text: 'Nunc omni virtuti vitium contrario nomine opponitur. Duo Reges: constructio interrete. Quid ergo attinet gloriose loqui, nisi constanter loquare? Hoc dixerit potius Ennius: Nimium boni est, cui nihil est mali. Proclivi currit oratio. Materiam vero rerum et copiam apud hos exilem, apud illos uberrimam reperiemus. Atque haec coniunctio confusioque virtutum tamen a philosophis ratione quadam distinguitur. Sed in rebus apertissimis nimium longi sumus.',
 - }
 
+- var TEXT_MEDIA_LINK = {
+-   modifier: 'btn-light',
+-   url: 'https://github.com/ArtemGrachov',
+-   title: 'Visit GitHub'
+- }
+
+- var TEXT_MEDIA_IMAGE = { type: 'image', url: '../../images/600x400.svg', alt: 'Dolor sit amet' }
+- var TEXT_MEDIA_YOUTUBE = { type: 'youtube', url: 'https://www.youtube.com/embed/ScMzIvxBSi4' }
+- var TEXT_MEDIA_GALLERY = {
+-   type: 'gallery',
+-   slides: [
+-     {
+-       type: 'youtube',
+-       url: 'https://www.youtube.com/embed/ScMzIvxBSi4'
+-     },
+-     {
+-       type: 'image',
+-       url: '../../images/600x400.svg',
+-       alt: 'Dolor sit amet'
+-     }
+-   ]
+- }
+- var TEXT_MEDIA_GMAP = { type: 'gmap' }
+- var TEXT_MEDIA_LIST = [
+-   { class: 'bi-alarm', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit' },
+-   { class: 'bi-chat-dots', text: 'Aspernatur dolore minus alias ipsa' },
+-   { class: 'bi-diagram-3', text: 'Similique nemo perspiciatis eaque nostrum' }
+- ]
+
 +text-media({
-  classNames: 'text-bg-dark',
-  title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-  subtitle: 'Ipsum magni dolorem culpa ratione amet consectetur optio sed placeat aut explicabo',
-  content: 'Nunc omni virtuti vitium contrario nomine opponitur. Duo Reges: constructio interrete. Quid ergo attinet gloriose loqui, nisi constanter loquare? Hoc dixerit potius Ennius: Nimium boni est, cui nihil est mali. Proclivi currit oratio. Materiam vero rerum et copiam apud hos exilem, apud illos uberrimam reperiemus. Atque haec coniunctio confusioque virtutum tamen a philosophis ratione quadam distinguitur. Sed in rebus apertissimis nimium longi sumus.',
+  class: 'text-bg-dark',
+  content: TEXT_MEDIA_CONTENT,
   link: {
-    modifier: 'btn-light',
-    url: 'https://github.com/ArtemGrachov',
-    title: 'Visit GitHub'
+    ...TEXT_MEDIA_LINK,
+    class: 'btn-light',
   },
-  media: mediaOptions.image
+  list: TEXT_MEDIA_LIST,
+  media: TEXT_MEDIA_IMAGE
 })
 
 +text-media({
-  classNames: 'text-bg-primary',
-  title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-  subtitle: 'Ipsum magni dolorem culpa ratione amet consectetur optio sed placeat aut explicabo',
-  content: 'Nunc omni virtuti vitium contrario nomine opponitur. Duo Reges: constructio interrete. Quid ergo attinet gloriose loqui, nisi constanter loquare? Hoc dixerit potius Ennius: Nimium boni est, cui nihil est mali. Proclivi currit oratio. Materiam vero rerum et copiam apud hos exilem, apud illos uberrimam reperiemus. Atque haec coniunctio confusioque virtutum tamen a philosophis ratione quadam distinguitur. Sed in rebus apertissimis nimium longi sumus.',
+  class: 'text-bg-primary',
+  content: TEXT_MEDIA_CONTENT,
   link: {
-    modifier: 'btn-success',
-    url: 'https://github.com/ArtemGrachov',
-    title: 'Visit GitHub'
+    ...TEXT_MEDIA_LINK,
+    class: 'btn-success',
   },
-  media: mediaOptions.youtube,
+  list: TEXT_MEDIA_LIST,
+  media: TEXT_MEDIA_YOUTUBE,
   reversed: true
 })
 
 +text-media({
-  classNames: 'text-bg-light',
-  title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-  subtitle: 'Ipsum magni dolorem culpa ratione amet consectetur optio sed placeat aut explicabo',
-  content: 'Nunc omni virtuti vitium contrario nomine opponitur. Duo Reges: constructio interrete. Quid ergo attinet gloriose loqui, nisi constanter loquare? Hoc dixerit potius Ennius: Nimium boni est, cui nihil est mali. Proclivi currit oratio. Materiam vero rerum et copiam apud hos exilem, apud illos uberrimam reperiemus. Atque haec coniunctio confusioque virtutum tamen a philosophis ratione quadam distinguitur. Sed in rebus apertissimis nimium longi sumus.',
+  class: 'text-bg-light',
+  content: TEXT_MEDIA_CONTENT,
   link: {
-    modifier: 'btn-dark',
-    url: 'https://github.com/ArtemGrachov',
-    title: 'Visit GitHub'
+    ...TEXT_MEDIA_LINK,
+    class: 'btn-dark',
   },
-  media: mediaOptions.gallery
+  list: TEXT_MEDIA_LIST,
+  media: TEXT_MEDIA_GALLERY
 })
 
 +text-media({
-  classNames: 'text-bg-dark',
-  title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-  subtitle: 'Ipsum magni dolorem culpa ratione amet consectetur optio sed placeat aut explicabo',
-  content: 'Nunc omni virtuti vitium contrario nomine opponitur. Duo Reges: constructio interrete. Quid ergo attinet gloriose loqui, nisi constanter loquare? Hoc dixerit potius Ennius: Nimium boni est, cui nihil est mali. Proclivi currit oratio. Materiam vero rerum et copiam apud hos exilem, apud illos uberrimam reperiemus. Atque haec coniunctio confusioque virtutum tamen a philosophis ratione quadam distinguitur. Sed in rebus apertissimis nimium longi sumus.',
+  class: 'text-bg-dark',
+  content: TEXT_MEDIA_CONTENT,
   link: {
-    modifier: 'btn-light',
-    url: 'https://github.com/ArtemGrachov',
-    title: 'Visit GitHub'
+    ...TEXT_MEDIA_LINK,
+    class: 'btn-light',
   },
-  media: mediaOptions.gmap,
+  list: TEXT_MEDIA_LIST,
+  media: TEXT_MEDIA_GMAP,
   reversed: true
 })

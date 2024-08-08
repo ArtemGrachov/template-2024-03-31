@@ -1,48 +1,62 @@
 include ./variables/colours.pug
-include ../components/text-media/mixins/text-media.pug
+include ../mixins/text-media.pug
 
 - var coloursReverse = COLOURS.reverse();
 - var buttonColors = [...coloursReverse.slice(1), coloursReverse[0]];
 
-- var media = ['image', 'youtube', 'gallery', 'gmap'];
-- var mediaCounter = 0;
-
-- var mediaOptions = {
--   image: { type: 'image', url: '../../images/600x400.svg', alt: 'Dolor sit amet' },
--   youtube: { type: 'youtube', url: 'https://www.youtube.com/embed/ScMzIvxBSi4' },
--   gallery: {
--     type: 'gallery',
--     slides: [
--       {
--         type: 'youtube',
--         url: 'https://www.youtube.com/embed/ScMzIvxBSi4'
--       },
--       {
--         type: 'image',
--         url: '../../images/600x400.svg',
--         alt: 'Dolor sit amet'
--       }
--     ]
--   },
--   gmap: { type: 'gmap' }
+- var TEXT_MEDIA_CONTENT = {
+-   title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+-   subtitle: 'Ipsum magni dolorem culpa ratione amet consectetur optio sed placeat aut explicabo',
+-   text: 'Nunc omni virtuti vitium contrario nomine opponitur. Duo Reges: constructio interrete. Quid ergo attinet gloriose loqui, nisi constanter loquare? Hoc dixerit potius Ennius: Nimium boni est, cui nihil est mali. Proclivi currit oratio. Materiam vero rerum et copiam apud hos exilem, apud illos uberrimam reperiemus. Atque haec coniunctio confusioque virtutum tamen a philosophis ratione quadam distinguitur. Sed in rebus apertissimis nimium longi sumus.',
 - }
 
+- var TEXT_MEDIA_LINK = {
+-   modifier: 'btn-light',
+-   url: 'https://github.com/ArtemGrachov',
+-   title: 'Visit GitHub'
+- }
+
+
+- var TEXT_MEDIA_IMAGE = { type: 'image', url: '../../images/600x400.svg', alt: 'Dolor sit amet' }
+- var TEXT_MEDIA_YOUTUBE = { type: 'youtube', url: 'https://www.youtube.com/embed/ScMzIvxBSi4' }
+- var TEXT_MEDIA_GALLERY = {
+-   type: 'gallery',
+-   slides: [
+-     {
+-       type: 'youtube',
+-       url: 'https://www.youtube.com/embed/ScMzIvxBSi4'
+-     },
+-     {
+-       type: 'image',
+-       url: '../../images/600x400.svg',
+-       alt: 'Dolor sit amet'
+-     }
+-   ]
+- }
+- var TEXT_MEDIA_GMAP = { type: 'gmap' }
+- var TEXT_MEDIA_LIST = [
+-   { class: 'bi-alarm', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit' },
+-   { class: 'bi-chat-dots', text: 'Aspernatur dolore minus alias ipsa' },
+-   { class: 'bi-diagram-3', text: 'Similique nemo perspiciatis eaque nostrum' }
+- ]
+
+- var mediaOptions = [TEXT_MEDIA_IMAGE, TEXT_MEDIA_YOUTUBE, TEXT_MEDIA_GALLERY, TEXT_MEDIA_GMAP];
+- var mediaCounter = 0;
+
 each colour, index in COLOURS
-  - var currentMedia = media[mediaCounter]
+  - var currentMedia = mediaOptions[mediaCounter]
   - mediaCounter++
-  if (mediaCounter >= media.length)
+  if (mediaCounter >= mediaOptions.length)
     - mediaCounter = 0
 
   +text-media({
-    classNames: `text-bg-${colour}`,
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    subtitle: 'Ipsum magni dolorem culpa ratione amet consectetur optio sed placeat aut explicabo',
-    content: 'Nunc omni virtuti vitium contrario nomine opponitur. Duo Reges: constructio interrete. Quid ergo attinet gloriose loqui, nisi constanter loquare? Hoc dixerit potius Ennius: Nimium boni est, cui nihil est mali. Proclivi currit oratio. Materiam vero rerum et copiam apud hos exilem, apud illos uberrimam reperiemus. Atque haec coniunctio confusioque virtutum tamen a philosophis ratione quadam distinguitur. Sed in rebus apertissimis nimium longi sumus.',
+    class: `text-bg-${colour}`,
+    content: TEXT_MEDIA_CONTENT,
     link: {
-      modifier: `btn-${buttonColors[index]}`,
-      url: 'https://github.com/ArtemGrachov',
-      title: 'Visit GitHub'
+      ...TEXT_MEDIA_LINK,
+      class: `btn-${buttonColors[index]}`,
     },
-    media: mediaOptions[currentMedia],
+    list: TEXT_MEDIA_LIST,
+    media: currentMedia,
     reversed: index % 2 === 1
   })

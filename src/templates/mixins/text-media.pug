@@ -1,5 +1,37 @@
-include ../../../mixins/carousel.pug
-include ../../../mixins/gmap.pug
+include ./carousel.pug
+include ./gmap.pug
+
+mixin text-media(options = {})
+  .py-5(class=options.class)
+    .container
+      .row.align-items-center
+        .col-12.col-lg-6.mb-4.mb-lg-0
+          if options.reversed
+            if (options.media)
+              +text-media-media(options, options.media)
+          else
+            +text-media-text(options, options.content, options.link, options.list)
+        .col-12.col-lg-6
+          if options.reversed
+            +text-media-text(options, options.content, options.link, options.list)
+          else
+            if (options.media)
+              +text-media-media(options, options.media)
+
+mixin text-media-text(options, content, link, list)
+  .vstack.gap-3.align-items-start
+    if (content)
+      .h2.my-0 #{content.title}
+      .h3.my-0 #{content.subtitle}
+      p #{content.text}
+    if (list)
+      ul.list-unstyled.mb-0
+        each item in list
+          li.mb-2.d-flex.align-items-center
+            .me-2.fs-4(class=item.class)
+            | #{item.text}
+    if (link)
+      a.btn.btn-primary(href=link.url class=link.class target=link.target) #{link.title}
 
 mixin text-media-media(options, media)
   case media.type
