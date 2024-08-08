@@ -1,0 +1,48 @@
+include ./variables/colours.pug
+include ../components/text-media/mixins/text-media.pug
+
+- var coloursReverse = COLOURS.reverse();
+- var buttonColors = [...coloursReverse.slice(1), coloursReverse[0]];
+
+- var media = ['image', 'youtube', 'gallery', 'gmap'];
+- var mediaCounter = 0;
+
+- var mediaOptions = {
+-   image: { type: 'image', url: '../../images/600x400.svg', alt: 'Dolor sit amet' },
+-   youtube: { type: 'youtube', url: 'https://www.youtube.com/embed/ScMzIvxBSi4' },
+-   gallery: {
+-     type: 'gallery',
+-     slides: [
+-       {
+-         type: 'youtube',
+-         url: 'https://www.youtube.com/embed/ScMzIvxBSi4'
+-       },
+-       {
+-         type: 'image',
+-         url: '../../images/600x400.svg',
+-         alt: 'Dolor sit amet'
+-       }
+-     ]
+-   },
+-   gmap: { type: 'gmap' }
+- }
+
+each colour, index in COLOURS
+  - var currentMedia = media[mediaCounter]
+  - mediaCounter++
+  if (mediaCounter >= media.length)
+    - mediaCounter = 0
+
+  +text-media({
+    classNames: `text-bg-${colour}`,
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    subtitle: 'Ipsum magni dolorem culpa ratione amet consectetur optio sed placeat aut explicabo',
+    content: 'Nunc omni virtuti vitium contrario nomine opponitur. Duo Reges: constructio interrete. Quid ergo attinet gloriose loqui, nisi constanter loquare? Hoc dixerit potius Ennius: Nimium boni est, cui nihil est mali. Proclivi currit oratio. Materiam vero rerum et copiam apud hos exilem, apud illos uberrimam reperiemus. Atque haec coniunctio confusioque virtutum tamen a philosophis ratione quadam distinguitur. Sed in rebus apertissimis nimium longi sumus.',
+    link: {
+      modifier: `btn-${buttonColors[index]}`,
+      url: 'https://github.com/ArtemGrachov',
+      title: 'Visit GitHub'
+    },
+    media: mediaOptions[currentMedia],
+    reversed: index % 2 === 1
+  })
