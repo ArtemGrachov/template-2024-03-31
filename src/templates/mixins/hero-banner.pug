@@ -1,0 +1,37 @@
+mixin hero-banner(options = {})
+  .d-flex.align-items-center.justify-content-center.min-vh-100.py-5(class=options.class)
+    .container
+      .row.align-items-center
+        .col-12.col-lg-4.mb-4.mb-lg-0
+          +hero-banner-content(options, options.content, options.link)
+        .col-12.col-lg-8
+          +hero-banner-media(options, options.media)
+
+mixin hero-banner-content(options, content, link)
+  .vstack.gap-3.align-items-start
+    if (content)
+      h1.my-0 #{content.title}
+      h2.my-0 #{content.subtitle}
+      p #{content.text}
+    if (link)
+      a(href=link.href class=link.class).btn #{link.label}
+
+mixin hero-banner-media(options = {}, media = {})
+  case media.type
+    when 'youtube'
+      +hero-banner-youtube(options, media)
+    when 'image'
+      +hero-banner-image(options, media)
+
+mixin hero-banner-image(options = {}, media = {})
+  img.mx-auto.d-block.mw-100(src=media.url alt=media.alt title=media.title)
+
+mixin hero-banner-youtube(options = {}, media = {})
+  iframe.mx-auto.mw-100.d-block(
+    src=media.url
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+    width="600"
+    height="400"
+  )

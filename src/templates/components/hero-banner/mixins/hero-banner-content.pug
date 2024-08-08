@@ -1,8 +1,0 @@
-mixin hero-banner-content(contentOptions = {})
-  .col-12.col-lg-4.mb-4.mb-lg-0
-    .vstack.gap-3.align-items-start
-      h1.my-0 #{contentOptions.title}
-      h2.my-0 #{contentOptions.subtitle}
-      block
-      if (contentOptions.link)
-        a(href=contentOptions.link.href class=contentOptions.link.class).btn #{contentOptions.link.label}

@@ -1,35 +1,40 @@
 include ./variables/colours.pug
-include ../components/hero-banner/mixins/hero-banner-slider.pug
-include ../components/hero-banner/mixins/hero-banner.pug
-include ../components/hero-banner/mixins/hero-banner-media.pug
-include ../components/hero-banner/mixins/hero-banner-content.pug
+include ../mixins/hero-banner.pug
+include ../mixins/hero-banner-slider.pug
 
-- var contents = ['image', 'video']
-- var contentCounter = 0
+- var HERO_BANNER_CONTENT = {
+-   title: 'Lorem ipsum dolor sit amet',
+-   subtitle: 'Consectetur adipisicing elit',
+-   text: 'Eius eos perferendis vitae obcaecati minima tempora iusto facilis voluptatibus repellat! Molestiae quibusdam minima, natus aspernatur beatae temporibus placeat dolorum culpa libero?',
+- }
+- var HERO_BANNER_LINK = {
+-   href: 'https://github.com/ArtemGrachov',
+-   class: 'btn-primary',
+-   label: 'GitHub.com'
+- }
+- var HERO_BANNER_IMAGE = { type: 'image', url: '../../images/600x400.svg', alt: 'Lorem ipsum', title: 'Image' }
+- var HERO_BANNER_YOUTUBE = { type: 'youtube', url: 'https://www.youtube.com/embed/ScMzIvxBSi4' }
+
+- var contents = [HERO_BANNER_IMAGE, HERO_BANNER_YOUTUBE]
+- var mediaCounter = 0
 - var buttonColors = [...COLOURS.slice(1), COLOURS[0]];
 
 - var sliderOptions = { slideCount: COLOURS.length, activeIndex: 0 }
 
 +hero-banner-slider(sliderOptions)
   each colour, index in COLOURS
+    - var currentMedia = contents[mediaCounter]
+    - mediaCounter++
+    if (mediaCounter >= contents.length)
+      - mediaCounter = 0
+
     +hero-banner-slide(sliderOptions, { index: index })
-      +hero-banner({ class: `text-bg-${colour}` })
-        +hero-banner-content({
-          title: `Lorem ipsum ${buttonColors[index]}`,
-          subtitle: 'Dolor sit amet',
-          link: {
-            href: '#',
-            label: 'Test link',
-            class: `btn-${buttonColors[index]}`
-          }
-        })
-          include ../components/hero-banner/blocks/text.pug
-        +hero-banner-media
-          - var currentContent = contents[contentCounter]
-          if (currentContent === 'image')
-            include ../components/hero-banner/blocks/image.pug
-          else if (currentContent === 'video')
-            include ../components/hero-banner/blocks/video.pug
-          - contentCounter++
-          if (contentCounter >= contents.length)
-            - contentCounter = 0
+      +hero-banner({
+        class: `text-bg-${colour}`,
+        content: HERO_BANNER_CONTENT,
+        media: currentMedia,
+        link: {
+          ...HERO_BANNER_LINK,
+          class: `btn-${buttonColors[index]}`
+        }
+      })
